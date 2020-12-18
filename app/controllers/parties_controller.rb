@@ -8,4 +8,12 @@ class PartiesController < ApplicationController
         @party = Party.find(params[:id])
     end
 
+    private
+
+    def party_params
+
+        params.require(:party).permit(:name, :date, :budget, :private)
+
+    end 
+
 end
