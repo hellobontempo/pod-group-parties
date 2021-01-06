@@ -13,6 +13,13 @@ class PartiesController < ApplicationController
     end
 
     def create
+
+        @party = Party.new(party_params)
+        if @party.save 
+            redirect_to @party 
+        else
+            render :new 
+        end
         
     end
 
@@ -20,7 +27,7 @@ class PartiesController < ApplicationController
 
     def party_params
 
-        params.require(:party).permit(:name, :date, :budget, :private)
+        params.require(:party).permit(:name, :date, :budget, :private, :category_name)
 
     end 
 

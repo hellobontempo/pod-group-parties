@@ -10,7 +10,8 @@ class Party < ApplicationRecord
     end
 
     def category_name=(name)
-        category = Category.find_or_create_by(name: name)
+        self.category = Category.find_or_create_by(name: name)
+        
     end
 
     def category_name
