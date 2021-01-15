@@ -1,7 +1,15 @@
+<%=form_tag('/parties', method: 'get') do %>
+<%=label_tag(:q, "Search for:") %>
+<%=text_field_tag(:q)%>
+<%= submit_tag("Search")%>
+<% end %>
+
 <h1>INDEX OF PARTIES</h1>
 
 <% @parties.each do |party| %> 
 
-<p><%= link_to(party.name, party_path(party.id))  %> - <%= party.display_date %></p>
+<p><%= link_to(party.name, party_path(party.id))  %> - <%= party.display_date %> - <%=party.budget%></p>
+
 
 <% end %>
+
