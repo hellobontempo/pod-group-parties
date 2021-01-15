@@ -6,6 +6,11 @@ class Party < ApplicationRecord
 
     scope :private_parties, -> {where(private: true)}
 
+    scope :budgets_less_than, -> (amount) {where('budget < ?', amount)}
+
+    scope :search_by_name, -> (query) {where('name LIKE ?', "%#{query}%" )}
+
+    scope :order_by_category_name, -> {joins(:category).order("categories.name")}
 
     # def self.order_by_budget
     #   return array of parties 

@@ -1,7 +1,11 @@
 class PartiesController < ApplicationController
 
     def index
+        if  params[:q]
+            @parties = Party.search_by_name(params[:q])
+        else
         @parties = Party.order_by_budget
+        end
     end
 
     def show
