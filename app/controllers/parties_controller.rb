@@ -1,7 +1,7 @@
 class PartiesController < ApplicationController
 
     def index
-        @parties = Party.order(:date)
+        @parties = Party.order_by_budget
     end
 
     def show
